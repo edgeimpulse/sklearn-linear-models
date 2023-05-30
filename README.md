@@ -23,6 +23,7 @@ As a primer, read the [Custom learning blocks](https://docs.edgeimpulse.com/docs
 5. The block is now available under any of your projects. Depending on the data your block operates on, you can add it via:
     * Classification: **Create impulse > Add learning block > Classification**, then select the block via 'Add an extra layer' on the 'Classifier' page.
     * Regression: **Create impulse > Add learning block > Regression**, then select the block via 'Add an extra layer' on the 'Regression' page.
+    
     Or you can select the block on the "Impulse design" page
 
 
