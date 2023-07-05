@@ -4,10 +4,11 @@ Documentation on the inner workings of these models is found on scikit-learns we
 
 As a primer, read the [Custom learning blocks](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/adding-custom-learning-blocks) page in the Edge Impulse docs and see another example [here](https://github.com/edgeimpulse/example-custom-ml-block-scikit) which also shows how to test the block locally.
 
+For more information read [Adding parameters to custom blocks](https://docs.edgeimpulse.com/docs/tips-and-tricks/adding-parameters-to-custom-blocks). 
 
 ### Pushing the block to Edge Impulse
 
-1. Install the [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation) v1.16.0 or higher.
+1. Install the [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation) v1.19.3 or higher.
 2. Navigate to the directory with the linear model you want to push to edge impulse.
 3. Initialize the block:
 
@@ -26,5 +27,3 @@ As a primer, read the [Custom learning blocks](https://docs.edgeimpulse.com/docs
     
     Or you can select the block on the "Impulse design" page
 
-
-If you wish to change any of the model training hyperparameters such as alpha for Ridge and RidgeClassifier you can change them in the `train.py` script and then push the block to your Edge Impulse account.

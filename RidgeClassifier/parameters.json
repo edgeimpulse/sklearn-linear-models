@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Alpha",
+        "value": 1.0,
+        "type": "float",
+        "help": "Regularization strength; must be a positive float.",
+        "param": "alpha"
+    }
+]

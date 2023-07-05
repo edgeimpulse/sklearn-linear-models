@@ -1,0 +1,121 @@
+[
+    {
+        "name": "Solver",
+        "value": "lbfgs",
+        "type": "select",
+        "param": "solver",
+        "help": "See scikit-learn documentation on Logistic Regression for more details on solver choices.",
+        "valid": [
+            "lbfgs",
+            "liblinear",
+            "newton-cg",
+            "newton-cholesky",
+            "sag",
+            "saga"
+        ]
+    },
+    {
+        "name": "Penalty",
+        "value": "l2",
+        "type": "select",
+        "valid": [
+            "l2",
+            "None"
+        ],
+        "param": "lbfgs-penalty",
+        "showIf": {
+            "parameter": "solver",
+            "operator": "eq",
+            "value": "lbfgs"
+        }
+    },
+    {
+        "name": "Penalty",
+        "value": "l2",
+        "type": "select",
+        "valid": [
+            "l1",
+            "l2"
+        ],
+        "param": "liblinear-penalty",
+        "showIf": {
+            "parameter": "solver",
+            "operator": "eq",
+            "value": "liblinear"
+        }
+    },
+    {
+        "name": "Penalty",
+        "value": "l2",
+        "type": "select",
+        "valid": [
+            "l2",
+            "None"
+        ],
+        "param": "newton-cg-penalty",
+        "showIf": {
+            "parameter": "solver",
+            "operator": "eq",
+            "value": "newton-cg"
+        }
+    },
+    {
+        "name": "Penalty",
+        "value": "l2",
+        "type": "select",
+        "valid": [
+            "l2",
+            "None"
+        ],
+        "param": "newton-cholesky-penalty",
+        "showIf": {
+            "parameter": "solver",
+            "operator": "eq",
+            "value": "newton-cholesky"
+        }
+    },
+    {
+        "name": "Penalty",
+        "value": "l2",
+        "type": "select",
+        "valid": [
+            "l2",
+            "None"
+        ],
+        "param": "sag-penalty",
+        "showIf": {
+            "parameter": "solver",
+            "operator": "eq",
+            "value": "sag"
+        }
+    },
+    {
+        "name": "Penalty",
+        "value": "l2",
+        "type": "select",
+        "valid": [
+            "l1",
+            "l2",
+            "elasticnet",
+            "None"
+        ],
+        "param": "saga-penalty",
+        "showIf": {
+            "parameter": "solver",
+            "operator": "eq",
+            "value": "saga"
+        }
+    },
+    {
+        "name": "L2 ratio",
+        "value": 0.5,
+        "type": "float",
+        "param": "l1-ratio",
+        "help": "L2 ratio must be slected when using elasticnet penalty. Value must be between 1.0 and 0.0",
+        "showIf": {
+            "parameter": "saga-penalty",
+            "operator": "eq",
+            "value": "elasticnet"
+        }
+    }
+]

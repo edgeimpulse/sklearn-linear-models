@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Alphas",
+        "value": "(0.1, 1, 10)",
+        "type": "string",
+        "help": "Regularization strengths to test; must be a list or tuple of positive floats.",
+        "param": "alphas"
+    }
+]
