@@ -40,4 +40,4 @@ RUN pip3 install -r requirements.txt
 COPY . ./
 
 # And tell us where to run the pipeline
-ENTRYPOINT ["python3", "-u", "train.py"]
+ENTRYPOINT ["./run.sh", "train.py"]
