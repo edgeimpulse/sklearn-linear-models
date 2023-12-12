@@ -10,6 +10,9 @@ RANDOM_SEED = 3
 random.seed(RANDOM_SEED)
 np.random.seed(RANDOM_SEED)
 
+print("script arguments:")
+print(sys.argv)
+
 # Load files
 parser = argparse.ArgumentParser(description="Train custom ML model")
 parser.add_argument("--data-directory", type=str, required=True)
