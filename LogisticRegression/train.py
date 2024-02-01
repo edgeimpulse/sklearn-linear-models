@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from conversion import convert_jax
 import jax.numpy as jnp
+import pickle
 
 # Set random seeds for repeatable results
 RANDOM_SEED = 3
@@ -102,11 +103,8 @@ def minimal_predict_proba(X):
     return prob
 
 
-print("Converting model...")
-convert_jax(
-    X_train.shape[1:],
-    minimal_predict_proba,
-    os.path.join(args.out_directory, "model.tflite"),
-)
-print("Converting model OK")
+print("Saving pickle model...")
+with open(os.path.join(args.out_directory, 'model.pkl'),'wb') as f:
+    pickle.dump(clf, f)
+print("Saving model OK")
 print("")
