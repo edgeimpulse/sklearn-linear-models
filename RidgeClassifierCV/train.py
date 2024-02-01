@@ -2,8 +2,6 @@ import sklearn  # do this first, otherwise get a libgomp error?!
 import argparse, os, sys, random, logging
 import numpy as np
 from sklearn.linear_model import RidgeClassifierCV
-from conversion import convert_jax
-import jax.numpy as jnp
 import pickle
 
 # Set random seeds for repeatable results
