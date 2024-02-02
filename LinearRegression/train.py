@@ -16,7 +16,7 @@ print(sys.argv)
 parser = argparse.ArgumentParser(description="Train custom ML model")
 parser.add_argument("--data-directory", type=str, required=True)
 parser.add_argument("--out-directory", type=str, required=True)
-parser.add_argument("--fit-intercept", type=bool, required=True)
+parser.add_argument("--fit-intercept", action='store_true')
 
 args, _ = parser.parse_known_args()
 
@@ -31,7 +31,6 @@ Y_train = np.load(os.path.join(args.data_directory, "Y_split_train.npy"))
 X_test = np.load(os.path.join(args.data_directory, "X_split_test.npy"))
 Y_test = np.load(os.path.join(args.data_directory, "Y_split_test.npy"))
 
-
 print("Training model on", str(X_train.shape[0]), "inputs...")
 # train your model
 reg = LinearRegression(fit_intercept=args.fit_intercept)
@@ -42,15 +41,6 @@ print("")
 print("Mean accuracy (training set):", reg.score(X_train, Y_train))
 print("Mean accuracy (validation set):", reg.score(X_test, Y_test))
 print("")
-
-
-# here comes the magic, provide a JAX version of the `proba` function
-def minimal_predict(X):
-    # first the linear model
-    # see: https://github.com/scikit-learn/scikit-learn/blob/36958fb240fbe435673a9e3c52e769f01f36bec0/sklearn/linear_model/_base.py#L430
-    out = jnp.dot(X, reg.coef_.T) + reg.intercept_
-    # reshape required for downstream tflite model
-    return out.reshape((-1, 1))
 
 print("Saving pickle model...")
 with open(os.path.join(args.out_directory, 'model.pkl'),'wb') as f:
