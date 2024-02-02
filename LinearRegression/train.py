@@ -42,7 +42,7 @@ print("Mean accuracy (training set):", reg.score(X_train, Y_train))
 print("Mean accuracy (validation set):", reg.score(X_test, Y_test))
 print("")
 
-print("Saving pickle model...")
+print("Saving model...")
 with open(os.path.join(args.out_directory, 'model.pkl'),'wb') as f:
     pickle.dump(reg,f)
 print("Saving model OK")

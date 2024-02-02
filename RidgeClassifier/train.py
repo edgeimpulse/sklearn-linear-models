@@ -47,28 +47,7 @@ print("Mean accuracy (training set):", clf.score(X_train, Y_train))
 print("Mean accuracy (validation set):", clf.score(X_test, Y_test))
 print("")
 
-
-# here comes the magic, provide a JAX version of the `proba` function
-def minimal_predict_proba(X):
-    # first the linear model
-    # see: https://github.com/scikit-learn/scikit-learn/blob/36958fb240fbe435673a9e3c52e769f01f36bec0/sklearn/linear_model/_base.py#L430
-    if clf.coef_.shape[0] == 1:
-        clf.coef_ = jnp.vstack([clf.coef_ * -1, clf.coef_])
-        clf.intercept_ = jnp.hstack([clf.intercept_ * -1, clf.intercept_])
-    y = jnp.dot(X, clf.coef_.T) + clf.intercept_
-
-    # then the exponentiation
-    # see https://github.com/scikit-learn/scikit-learn/blob/36958fb240fbe435673a9e3c52e769f01f36bec0/sklearn/linear_model/_base.py#L462
-    # and https://github.com/scipy/scipy/blob/8a64c938ddf1ae4c02a08d2c5e38daeb8d061d38/scipy/special/_logit.h#L15
-    expit = jnp.exp(y)
-
-    # and finally the normalisation
-    # see: https://github.com/scikit-learn/scikit-learn/blob/36958fb240fbe435673a9e3c52e769f01f36bec0/sklearn/linear_model/_base.py#L467
-    prob = expit / expit.sum(axis=1, keepdims=True)
-    return prob
-
-
-print("Saving pickle model...")
+print("Saving model...")
 with open(os.path.join(args.out_directory, 'model.pkl'),'wb') as f:
     pickle.dump(clf,f)
 print("Saving model OK")
