@@ -4,9 +4,21 @@ Documentation on the inner workings of these models is found on scikit-learns we
 
 As a primer, read the [Custom learning blocks](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/adding-custom-learning-blocks) page in the Edge Impulse docs and see another example [here](https://github.com/edgeimpulse/example-custom-ml-block-scikit) which also shows how to test the block locally.
 
-For more information read [Adding parameters to custom blocks](https://docs.edgeimpulse.com/docs/tips-and-tricks/adding-parameters-to-custom-blocks). 
+For more information read [Adding parameters to custom blocks](https://docs.edgeimpulse.com/docs/tips-and-tricks/adding-parameters-to-custom-blocks).
 
-### Pushing the block to Edge Impulse
+## Fetching new data
+
+To get up-to-date data from your project:
+
+1. Install the [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation) v1.16 or higher.
+2. Open a command prompt or terminal window.
+3. Fetch new data via:
+
+    ```
+    $ edge-impulse-blocks runner --download-data data/
+    ```
+
+## Pushing the block to Edge Impulse
 
 1. Install the [Edge Impulse CLI](https://docs.edgeimpulse.com/docs/edge-impulse-cli/cli-installation) v1.19.3 or higher.
 2. Navigate to the directory with the linear model you want to push to edge impulse.
@@ -24,6 +36,5 @@ For more information read [Adding parameters to custom blocks](https://docs.edge
 5. The block is now available under any of your projects. Depending on the data your block operates on, you can add it via:
     * Classification: **Create impulse > Add learning block > Classification**, then select the block via 'Add an extra layer' on the 'Classifier' page.
     * Regression: **Create impulse > Add learning block > Regression**, then select the block via 'Add an extra layer' on the 'Regression' page.
-    
-    Or you can select the block on the "Impulse design" page
 
+    Or you can select the block on the "Impulse design" page
